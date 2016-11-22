@@ -1,0 +1,13 @@
+<ol class="menuList">
+  <li ng-repeat="category in menu.categories">
+  <b>Name: </b> {{ category.name }}
+  <button class="btn btn-sm btn-danger pull-right"ng-click="menu.onRemove({index: $index});">Don't want this one!</button>
+  <br>
+  <b>Short Name: </b> {{ category.short_name }} <br/>
+  <b>Description: </b> {{ category.description }}
+</li>
+</ol>
+
+<div class="error" ng-show="menu.categories.length < 1">
+  Nothing Found
+</div>

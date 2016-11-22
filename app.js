@@ -30,27 +30,23 @@
   function NarrowItDownController(MenuSearchService){
     var menu = this;
 
-    // var menuSearch = MenuSearchService();
-
     menu.itemName = "";
     menu.getResult = function(){
 
         var searchedData = MenuSearchService.getMatchedMenuItems(menu.itemName);
         searchedData.then(function(response){
           menu.categories = response;
-          menu.totalItem = response.length;
-          //  console.log("menu.categories:: ",menu.categories);
+
         }).catch(function(error){
           alert("somthing went wrong!");
 
         });
 
-      //  menu.chekEmpty = MenuSearchService.chekEmpty();
-
 
     };
 
     menu.removeItem = function(itemIndex){
+    //  menu.totalItem = MenuSearchService.menuLength;
       MenuSearchService.removeItem(itemIndex);
     };
 
@@ -97,7 +93,9 @@
     };
 
     service.removeItem = function(itemIndex){
+
       foundItems.splice(itemIndex,1);
+
     };
 
     // service.chekEmpty = function(){
